@@ -1,0 +1,22 @@
+.search{
+   margin: 5px;
+   padding: 5px;
+   display: flex;
+   gap: 10px;
+   justify-content: center;
+}
+
+.search input{
+    width: 50rem;
+    height: 2rem;
+}
+
+.btn:hover{
+ background-color:gainsboro;
+ cursor: pointer;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
