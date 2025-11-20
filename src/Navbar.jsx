@@ -1,6 +1,6 @@
 import logo from "./assets/logo.png";
 import './Navbar.css'
-export default function Navbar() {
+export default  function Navbar() {
   return (
     <div className="nav-container">
       <div className="logo">
@@ -17,3 +17,4 @@ export default function Navbar() {
     </div>
   );
 }
+
