@@ -20,3 +20,8 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.Link{
+  text-decoration: none;
+  color: inherit;
+}

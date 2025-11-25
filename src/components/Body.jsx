@@ -2,6 +2,8 @@ import './Body.css'
 import Card from './Card'
 import { useEffect, useState } from 'react';
 import Shimmer from '../utils/Shimmer';
+import { Link } from 'react-router-dom';
+
 
 export default function Body(){
 
@@ -78,9 +80,7 @@ export default function Body(){
             </div>
             
             <div className="card-container">
-             {/*<Card  name="Apna Dhaba"  keyword="Chicken Dum of Pune"  rating="4.3"  price="450" />  */} {/*manual enter data*/}
-              {/*<Card resData={resObj[1]}/>      Or else we can render single single obj */}
-             {filteredList.map(items=> <Card key={items.info.id} resData={items}/>)} {/*Key use ny keli tari chaltay pn partek obj la unique key pahijen*/ }                           
+           {filteredList.map((items,idx)=> <Link to={"/restaurant/"+idx} key={idx} className='Link' ><Card key={idx} resData={items}/></Link>)} {/*Key use ny keli tari chaltay pn partek obj la unique key pahijen*/ }                           
             </div>
         </div>
     )

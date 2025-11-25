@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Body from "../components/Body"
 import About from "../components/About";
 import Error from "../components/Error";
+import RestaurantMenu from "../components/RestaurantMenu";
 
 const router=createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router=createBrowserRouter([
       {
         path:"/about",
         element:<About/>
+      },
+      {
+        path:"/restaurant/:resid",
+        element:<RestaurantMenu/>
       }
     ],
     errorElement:<Error/>

@@ -1,0 +1,96 @@
+
+.menu-page {
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.restaurant-header {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+.restaurant-header h1 {
+  font-size: 32px;
+  margin: 0;
+  color: #333;
+}
+
+.restaurant-header p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #555;
+}
+
+
+.menu-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+
+.menu-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #ececec;
+  margin-bottom: 20px;
+  transition: 0.2s ease-in-out;
+  background: #ffffff;
+}
+
+.menu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Menu text section */
+.menu-info {
+  width: 70%;
+}
+
+.menu-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.menu-info p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+
+.menu-price {
+  font-weight: bold;
+  color: #000;
+  margin-top: 8px;
+}
+
+
+.menu-category {
+  color: #ff5733;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .menu-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .menu-info {
+    width: 100%;
+  }
+
+}
