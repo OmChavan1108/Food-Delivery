@@ -3,7 +3,7 @@
    margin: 5px;
    border: 1px solid black;
    width: 300px;
-   height: 550px;
+   height: 600px;
 }
 
 .menuimg{
@@ -15,3 +15,21 @@
    background-color: #ff5252;       
   transform: scale(1.08); }
 
+
+
+  .shimmer-con{
+   display: flex;
+   flex-wrap: wrap;
+}
+
+  .shimmer-card  {
+   padding: 5px;
+   margin: 5px;
+   border: 1px solid black;
+   width: 300px;
+   height: 600px;
+}
+
+
+
+  
