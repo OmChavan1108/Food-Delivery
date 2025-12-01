@@ -1,37 +1,19 @@
 import './Body.css'
 import Card from './Card'
-import { useEffect, useState } from 'react';
+import {  useState,useEffect } from 'react';
+import useListOfRes from '../utils/useListOfRes';
 import Shimmer from '../utils/Shimmer';
 import { Link } from 'react-router-dom';
 
-
 export default function Body(){
-
-    let [list, setList] = useState([]);
     let [filteredList, setFilteredList] = useState([]);
     const[searchedText,setSearchText]=useState("")
 
-     async function fetchdata(){
-        let data = await fetch("http://localhost:3000/swiggy");
-        let jdata=await data.json()
-      
-        //to read data
-        const restaurants =
-        jdata?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;  //optional chaining
+     let list=useListOfRes("");               //custom hook
+     useEffect(() => {
+     setFilteredList(list); // sync filtered list with API list
+     }, [list]);
 
-       console.log("RESTAURANTS:", restaurants);
-       if(restaurants){
-        setList(restaurants)
-        setFilteredList(restaurants); }
-    }
-
-   useEffect(() => {
-    (async () => {
-        await fetchdata();               //this is done to stop warnings
-    })();
-   }, []);
-
-     
     function stars(){
         const obj=list.filter(item=>item.info.avgRating>=4.5)
         setFilteredList(obj)
