@@ -1,10 +1,11 @@
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
 import Layout from "../components/Layout";
 import Body from "../components/Body"
-//mport About from "../components/About";
+//import About from "../components/About";
 import Error from "../components/Error";
 import RestaurantMenu from "../components/RestaurantMenu";
 import { lazy, Suspense } from "react";
+
 
 let About = lazy(() => import("../components/About"));
 

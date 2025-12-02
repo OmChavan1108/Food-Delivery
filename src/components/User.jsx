@@ -1,4 +1,3 @@
-import './card.css'
 export default function User({user}) {
   let props=user
 
