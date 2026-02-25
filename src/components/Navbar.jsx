@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useOnline } from "../utils/useOnline";
 import logo from "../assets/logo.png";
+import { userName } from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [btn, setBtn] = useState("Login");
@@ -11,6 +13,9 @@ export default function Navbar() {
   }
 
   const online = useOnline();
+  const {name}=useContext(userName);
+  const cartItems=useSelector((store)=>store.cart.items)
+  
 
   return (
     <nav className="flex items-center justify-between px-6 py-3 shadow-md bg-white">
@@ -24,10 +29,11 @@ export default function Navbar() {
         <li>{online ? "🟢 Online" : "🔴 Offline"}</li>
         <li><Link to="/" className="hover:text-blue-500">Home</Link> </li>
         <li><Link to="/about" className="hover:text-blue-500">About Us</Link></li>
-        <li className="cursor-pointer text-xl"><i className="fa-solid fa-cart-arrow-down"></i></li>
+        <li className="cursor-pointer text-xl"> <Link to='/cart'> <i className="fa-solid fa-cart-arrow-down"></i> (items-{cartItems.length})</Link></li>
         <button onClick={handleLogin}
          className="px-4 py-1 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg shadow-lg shadow-cyan-500/50" >{btn}
         </button>
+        <li>{name}</li>
       </ul>
     </nav>
   );

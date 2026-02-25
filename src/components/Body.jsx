@@ -3,6 +3,7 @@ import {  useState,useEffect } from 'react';
 import useListOfRes from '../utils/useListOfRes';
 import Shimmer from '../utils/Shimmer';
 import { Link } from 'react-router-dom';
+import { withPromotedLabel } from './withPromotedLabel';
 
 export default function Body(){
     let [filteredList, setFilteredList] = useState([]);
@@ -12,6 +13,8 @@ export default function Body(){
      useEffect(() => {
      setFilteredList(list); // sync filtered list with API list
      }, [list]);
+
+     const PromotedCard = withPromotedLabel(Card);
 
     function stars(){
         const obj=list.filter(item=>item.info.avgRating>=4.5)
@@ -37,6 +40,7 @@ export default function Body(){
         return <Shimmer/>
     }
 
+    //When we search for any restarunt and it is not present so   No such restaurants
     if(filteredList.length===0){
       return(
      <div className="w-full flex flex-col items-center mt-6">
@@ -65,8 +69,9 @@ export default function Body(){
   </div>
 
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    {filteredList.map((items, idx) => (  <Link  to={`/restaurant/${idx}`}  key={idx}  className="no-underline">
-        <Card resData={items} /> </Link> ))}
+        {filteredList.map((res, idx) =>(res.info.avgRating>4.5) ? 
+        (<Link  to={`/restaurant/${idx}`}  key={idx}  className="no-underline"> <PromotedCard  resData={res} /> </Link>) : 
+        ( <Link to={`/restaurant/${idx}`}  key={idx}  className="no-underline"> <Card resData={res} /> </Link>))}
   </div>
 
 </div>  
